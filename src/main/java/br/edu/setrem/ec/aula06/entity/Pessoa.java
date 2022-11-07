@@ -1,6 +1,8 @@
 package br.edu.setrem.ec.aula06.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -8,13 +10,14 @@ import javax.persistence.ManyToOne;
 public class Pessoa {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String endereco;
 
 	@ManyToOne
 	private Departamento departamento;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -46,6 +49,5 @@ public class Pessoa {
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
 	}
-	
-	
+
 }
